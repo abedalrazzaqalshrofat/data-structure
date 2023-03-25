@@ -1,5 +1,8 @@
 package com.abedalrazzaq.doublylinkedlist;
 
+import com.abedalrazzaq.singlelinkedlist.FirstInLastOut;
+import com.abedalrazzaq.singlelinkedlist.LinkedList;
+
 public class DoublyLinkedList<T extends Comparable<T>> implements NavigableList<T> {
 
     private Node<T> head;
@@ -26,12 +29,25 @@ public class DoublyLinkedList<T extends Comparable<T>> implements NavigableList<
     }
     @Override
     public void insertAtLast(T item){
+        if (tail == null){
+            insert(item);
+            return;
+        }
         Node<T> temp = new Node<>(item);
         temp.setPrevious(tail);
         tail.setNext(temp);
         tail = temp;
         size++;
     }
+
+    public void traverseReverse(){
+        Node<T> temp = tail;
+        while (temp != null){
+            System.out.println(temp.getData());
+            temp = temp.getPrevious();
+        }
+    }
+
 
     @Override
     public void removeFromFirst() {
@@ -94,6 +110,9 @@ public class DoublyLinkedList<T extends Comparable<T>> implements NavigableList<
             temp = temp.getNext();
         }
     }
+
+
+
 
     public int size() {
         return size;

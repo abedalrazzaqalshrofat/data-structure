@@ -9,4 +9,5 @@ public interface List<T> {
     void removeAt(int index);
 
     void traverse();
+
 }

@@ -1,24 +1,28 @@
 package com.abedalrazzaq;
 
 import com.abedalrazzaq.doublylinkedlist.DoublyLinkedList;
-import com.abedalrazzaq.doublylinkedlist.NavigableList;
-import com.abedalrazzaq.singlelinkedlist.FirstInFirstOut;
 import com.abedalrazzaq.singlelinkedlist.LinkedList;
+import com.abedalrazzaq.singlelinkedlist.Node;
+
+import java.util.Scanner;
 
 public class Main {
+
+
     public static void main(String[] args) {
 
-        NavigableList<String> stringLinkedList = new DoublyLinkedList<>();
+        DoublyLinkedList<String> list = new DoublyLinkedList<>();
+        list.insert("hello");
+        list.insert("world");
+        list.insert("my");
+        list.insert("name");
+        list.insert("is");
+        list.insert("abedalrazzaq");
+        list.insert("hassan");
 
-        stringLinkedList.insert("hello");
-        stringLinkedList.insert("world");
-        stringLinkedList.insert("my");
-        stringLinkedList.insert("name");
+        list.traverseReverse();
 
 
-        stringLinkedList.remove("world");
-
-        stringLinkedList.traverse();
 
 
     }

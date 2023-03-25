@@ -13,7 +13,16 @@ public class LinkedList<T extends Comparable<T>> implements List<T>{
     }
 
     public LinkedList(){
-        this.inserter = null;
+        this.inserter = new FirstInFirstOut<>();
+    }
+
+    public void insert(T item,Insert<T> inserter) {
+        if (root == null){
+            root = new Node<>(item);
+        } else {
+            root = inserter.insert(item,root);
+        }
+        numberOfItems++;
     }
 
 
@@ -42,6 +51,25 @@ public class LinkedList<T extends Comparable<T>> implements List<T>{
             temp = temp.getNext();
         }
         if (detected) numberOfItems--;
+    }
+
+    public Node<T> getAtIndex(int i){
+        Node<T> temp = root;
+        while (i >= 1){
+            temp = temp.getNext();
+            i--;
+        }
+        return new Node<>(temp.getData());
+    }
+
+    public void traverseReverse(){
+       LinkedList<T> temp = new LinkedList<>();
+       Node<T> node = root;
+       while (node != null){
+           temp.insert(node.getData(),new FirstInLastOut<>());
+           node = node.getNext();
+       }
+       temp.traverse();
     }
 
     @Override
