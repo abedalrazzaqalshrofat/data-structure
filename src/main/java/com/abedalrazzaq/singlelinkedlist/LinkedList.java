@@ -6,7 +6,7 @@ public class LinkedList<T extends Comparable<T>> implements List<T>{
 
     private int numberOfItems = 0;
 
-    private Insert<T> inserter;
+    private final Insert<T> inserter;
 
     public LinkedList(Insert<T> inserter){
         this.inserter = inserter;
@@ -21,10 +21,10 @@ public class LinkedList<T extends Comparable<T>> implements List<T>{
     public void insert(T item) {
         if (root == null){
             root = new Node<>(item);
-            numberOfItems++;
         } else {
-            root = inserter.insertAt(item,root);
+            root = inserter.insert(item,root);
         }
+        numberOfItems++;
     }
 
     @Override
@@ -72,36 +72,5 @@ public class LinkedList<T extends Comparable<T>> implements List<T>{
     public int getNumberOfItems() {
         return numberOfItems;
     }
-
-//    private static class Node<T extends Comparable<T>> {
-//
-//        private T data;
-//        private Node<T> next;
-//
-//        public Node(T data) {
-//            this.data = data;
-//        }
-//
-//        public T getData() {
-//            return data;
-//        }
-//
-//        public void setData(T data) {
-//            this.data = data;
-//        }
-//
-//        public Node<T> getNext() {
-//            return next;
-//        }
-//
-//        public void setNext(Node<T> next) {
-//            this.next = next;
-//        }
-//
-//        @Override
-//        public String toString() {
-//            return data.toString();
-//        }
-//    }
 
 }

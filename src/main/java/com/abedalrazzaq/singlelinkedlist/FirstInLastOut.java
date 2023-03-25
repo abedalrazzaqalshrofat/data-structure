@@ -7,7 +7,7 @@ public class FirstInLastOut<T extends Comparable<T>>  implements Insert<T>{
 
 
     @Override
-    public Node<T> insertAt(T item, Node<T> root) {
+    public Node<T> insert(T item, Node<T> root) {
         Node<T> temp = new Node<>(item);
         temp.setNext(root);
         root = temp;

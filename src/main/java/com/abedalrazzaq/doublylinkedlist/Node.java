@@ -1,13 +1,13 @@
-package com.abedalrazzaq.singlelinkedlist;
+package com.abedalrazzaq.doublylinkedlist;
 
-public class Node<T extends Comparable<T>> {
+public class Node<T extends Comparable<T>> extends com.abedalrazzaq.singlelinkedlist.Node<T> {
 
     private T data;
     private Node<T> next;
-
+    private Node<T> previous;
 
     public Node(T data) {
-        this.data = data;
+        super(data);
     }
 
     public T getData() {
@@ -24,6 +24,14 @@ public class Node<T extends Comparable<T>> {
 
     public void setNext(Node<T> next) {
         this.next = next;
+    }
+
+    public Node<T> getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(Node<T> previous) {
+        this.previous = previous;
     }
 
     @Override

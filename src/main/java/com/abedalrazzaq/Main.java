@@ -10,6 +10,8 @@ public class Main {
 
         stringLinkedList.insert("hello");
         stringLinkedList.insert("world");
+        stringLinkedList.insert("my");
+        stringLinkedList.insert("name");
 
         stringLinkedList.traverse();
 
