@@ -1,4 +1,4 @@
-package com.abedalrazzaq.linkedlist;
+package com.abedalrazzaq.singlelinkedlist;
 
 public interface Insert<T extends Comparable<T>> {
 

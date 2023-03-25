@@ -1,4 +1,4 @@
-package com.abedalrazzaq.linkedlist;
+package com.abedalrazzaq.singlelinkedlist;
 
 public class FirstInLastOut<T extends Comparable<T>>  implements Insert<T>{
 
