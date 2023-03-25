@@ -8,6 +8,7 @@ public class Node<T extends Comparable<T>> extends com.abedalrazzaq.singlelinked
 
     public Node(T data) {
         super(data);
+        this.data = data;
     }
 
     public T getData() {

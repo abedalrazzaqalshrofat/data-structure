@@ -11,8 +11,8 @@ public interface NavigableList<T extends Comparable<T>> extends List<T> {
 
     void insertAtLast(T item);
 
-    void removeFromFirst(T item);
+    void removeFromFirst();
 
-    void removeFromLast(T item);
+    void removeFromLast();
 
 }

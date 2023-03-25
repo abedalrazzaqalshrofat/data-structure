@@ -9,7 +9,12 @@ public class DoublyLinkedList<T extends Comparable<T>> implements NavigableList<
 
     @Override
     public void insert(T item) {
-        insertAtFirst(item);
+        if (head == null){
+            head = new Node<>(item);
+            tail = head;
+            return;
+        }
+        insertAtLast(item);
     }
     @Override
     public void insertAtFirst(T item){
@@ -29,7 +34,7 @@ public class DoublyLinkedList<T extends Comparable<T>> implements NavigableList<
     }
 
     @Override
-    public void removeFromFirst(T item) {
+    public void removeFromFirst() {
         Node<T> temp = head.getNext();
         head.setNext(null);
         temp.setPrevious(null);
@@ -38,7 +43,7 @@ public class DoublyLinkedList<T extends Comparable<T>> implements NavigableList<
     }
 
     @Override
-    public void removeFromLast(T item) {
+    public void removeFromLast() {
         Node<T> temp = tail.getPrevious();
         tail.setPrevious(null);
         temp.setNext(null);
@@ -48,7 +53,21 @@ public class DoublyLinkedList<T extends Comparable<T>> implements NavigableList<
 
     @Override
     public void remove(T item) {
-        removeFromLast(item);
+        Node<T> temp = head;
+        boolean detected = false;
+        while (temp.getNext() != null){
+            if (temp.getNext().getData().compareTo(item) == 0){
+                Node<T> target = temp.getNext();
+                target.getNext().setPrevious(temp);
+                temp.setNext(target.getNext());
+                target.setPrevious(null);
+                target = null;
+                detected = true;
+                return;
+            }
+            temp = temp.getNext();
+        }
+        if (detected) size--;
     }
 
     @Override
